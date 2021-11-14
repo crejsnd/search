@@ -2,13 +2,12 @@ import React, {useContext, useEffect, useState} from 'react'
 import { AuthContext } from '../context/AuthContext'
 import { useHttp } from '../hooks/http.hook'
 import {useHistory} from 'react-router-dom'
-
+import {Search} from '../components/Search'
 export const CreatePage = () => {
     const history = useHistory()
     const auth = useContext(AuthContext)
     const {request} = useHttp()
     const [link, setLink] = useState('')
-
     useEffect(()=>{
         window.M.updateTextFields()
     }, [])
@@ -23,6 +22,7 @@ export const CreatePage = () => {
             }catch(err){}
         }
     }
+    
     return(<div className="row">
         <div className="col s8 offset-s2" style={{paddingTop: '2rem'}}>
         <div className="input-field">
@@ -35,6 +35,9 @@ export const CreatePage = () => {
           onKeyPress={pressHandler}/>
           <label htmlFor="link">Enter the link</label>
           </div>
+          <Search />
+          
+
         </div>
         
     </div>)
