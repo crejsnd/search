@@ -24,8 +24,8 @@ export const Search = () => {
     return(<div className="row">
           <div className="file-search">
             <form onSubmit={searchInFiles}>
-              <input name="name" placeholder="Имя" />
-              <input name="surname" placeholder="Фамилия" />
+              <input required name="name" placeholder="Имя" />
+              <input required name="surname" placeholder="Фамилия" />
               <input name="birth" placeholder="Дата рождения" />
               <input name="gender" placeholder="Пол" />
               <input name="adres" placeholder="Адрес" />
