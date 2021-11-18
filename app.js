@@ -35,7 +35,24 @@ app.post('/api/search-file', async (req, res) => {
 	res.send(result)
 })
 const matchRow = (row, fields) => {
-	let matches = 0
+	let matches = 0,
+		isMatches = {
+			name: false,
+			surname: false
+		},
+		lines = row.split(' ')
+	lines.forEach(line => {
+		if (line == fields.name) {
+			isMatches.name = true
+		}
+		if (line == fields.surname) {
+			isMatches.surname = true
+		}
+	})
+	if (!isMatches.name || !isMatches.surname) {
+		return 0
+	}
+		console.log(isMatches)	
 	for (const field of Object.keys(fields)) {
 	  	const search = fields[field]
 	  	if (search) { 
