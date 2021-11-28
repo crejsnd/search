@@ -36,7 +36,10 @@ export const Search = () => {
             </form>
             <p>Search result</p>
             {items.map((item) => (
-                <li className="search-result" key={item}>{item}</li>
+                <li className="search-result" key={item}>
+                  {item.split('/images/').length > 0 ? item.split('/images/')[0]: item}
+                  <img width="50px" src={item.split('/images/').length > 0 ? '/images/' + item.split('/images/')[1]:''} />
+                </li>
             ))}
         </div>
     </div>)

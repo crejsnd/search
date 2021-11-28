@@ -38,20 +38,33 @@ const matchRow = (row, fields) => {
 	let matches = 0,
 		isMatches = {
 			name: false,
-			surname: false
+			surname: false,
+			birth: false,
+			adres: false
 		},
 		lines = row.split(' ')
+	if (row.indexOf(fields.adres) >= 0) {
+		isMatches.adres = true
+	}
 	lines.forEach(line => {
 		if (line == fields.name) {
 			isMatches.name = true
 		}
+		if (line == fields.birth) {
+			isMatches.birth = true
+		}
+		
 		if (line == fields.surname) {
 			isMatches.surname = true
 		}
 	})
-	if (!isMatches.name || !isMatches.surname) {
+	if (!isMatches.name || !isMatches.surname)  {
 		return 0
 	}
+	if (!isMatches.adres && !isMatches.birth)  {
+		return 0
+	}
+
 		console.log(isMatches)	
 	for (const field of Object.keys(fields)) {
 	  	const search = fields[field]
