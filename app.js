@@ -43,7 +43,7 @@ const matchRow = (row, fields) => {
 			adres: false
 		},
 		lines = row.split(' ')
-	if (row.indexOf(fields.adres) >= 0) {
+	if (fields.adres.length > 2 && row.indexOf(fields.adres) >= 0) {
 		isMatches.adres = true
 	}
 	lines.forEach(line => {
