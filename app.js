@@ -61,7 +61,7 @@ const matchRow = (row, fields) => {
 	if (!isMatches.name || !isMatches.surname)  {
 		return 0
 	}
-	if (!isMatches.adres && !isMatches.birth)  {
+	if (!isMatches.adres || !isMatches.birth)  {
 		return 0
 	}
 
